@@ -14,14 +14,62 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig)
 const database = firebase.database()
 
-database.ref().update({
-    name: 'Andrew'
+database.ref('expense').push({
+    description: 'Rent',
+    note: '',
+    amount: 1022323,
+    createdAt: 1231231313
 })
 
-database.ref().on('value', (snapshot) => {
-    const val = snapshot.val()
-    console.log(`${val.name} is a ${val.job.title} at ${val.job.company}`)
+database.ref('expense').push({
+    description: 'Rent',
+    note: '',
+    amount: 1022323,
+    createdAt: 1231231313
 })
+
+database.ref('expense').push({
+    description: 'Rent',
+    note: '',
+    amount: 1022323,
+    createdAt: 1231231313
+})
+
+
+// database.ref('/notes/-LzwfO1VjfFktQ9Q_wXg').remove()
+
+
+// database.ref('/notes/-LzwfO1VjfFktQ9Q_wXg').update({
+//     body: 'Buy Food'
+// })
+
+
+// database.ref('notes').push({
+//     title: 'Course topics',
+//     body: 'React Native, Angular, Python'
+// })
+
+// const notes = [{
+//     id: '12',
+//     title: 'Biking',
+//     body: 'Biking this is the rider'
+// }, {
+//     id: '13',
+//     title: 'Motor',
+//     body: 'Motor mechanic'
+// }]
+
+// database.ref('notes').set(notes)
+// database.ref('notes/12')
+
+// database.ref().update({
+//     name: 'Andrew'
+// })
+
+// database.ref().on('value', (snapshot) => {
+//     const val = snapshot.val()
+//     console.log(`${val.name} is a ${val.job.title} at ${val.job.company}`)
+// })
 
 // const onValueChange = database.ref().on('value', (snapshot) => {
 //     console.log(snapshot.val())
