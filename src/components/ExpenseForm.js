@@ -69,15 +69,17 @@ class ExpenseForm extends Component {
     }
     render() {
         return (
-            <div>
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={this.onSubmit} className="form">
+                    {this.state.error && <p className="form__error">{this.state.error}</p>}
                     <input 
+                        className="text-input"
                         value={this.state.description}
                         type="text"
                         placeholder="Description"
                         onChange={this.onDescription}
                     />
                     <input 
+                        className="text-input"
                         type="number"
                         placeholder="Amount"
                         value={this.state.amount}
@@ -91,14 +93,16 @@ class ExpenseForm extends Component {
                         numberOfMonths={1}
                         isOutsideRange={() => false}
                     />
-                    <textarea 
+                    <textarea
+                        className="textarea" 
                         placeholder="Add a note for your expense (optional)"    
                         value={this.state.note}
                         onChange={this.onNote}
                     />
-                    <button>Add Expense</button>
+                    <div>
+                        <button className="button">Save Expense</button>
+                    </div>
                 </form>
-            </div>
         )
     }
 }
